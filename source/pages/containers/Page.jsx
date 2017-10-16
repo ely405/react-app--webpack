@@ -7,12 +7,14 @@ import {
 
 import Home from './Home.jsx';
 import About from './About.jsx';
+import User from './User.jsx';
 import Error404 from './Error404.jsx';
 
 
 const pages = ()=>{
     return(
         <main role="application">
+            {/* Lista de artículos */}
             <Match
                 pattern='/'
                 exactly
@@ -22,6 +24,12 @@ const pages = ()=>{
                 pattern='/about'
                 exactly
                 component={About}
+            />
+            {/* Detalle de usuario */}
+            <Miss
+                pattern='/user/:id'
+                exactly
+                component={User}
             />
             <Miss
                 component={Error404}
